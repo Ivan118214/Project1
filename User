@@ -1,0 +1,71 @@
+<!-- Load the jQuery and jQuery UI libraries. -->
+<script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+
+<!-- Custom client-side JavaScript code. -->
+<script>
+  // When the page loads.
+  $(function() {
+    $('#new-user').bind('submit', onNewUserFormSubmit);
+  //    loadUserLists();
+  });
+  
+  
+   function showUsers(users) {
+    var list = $('#users').empty();
+    if (/^[a-zA-Z]/.test(userID)) {
+      users.forEach(function(user) {
+        if (/^[a-zA-Z]/.test(UserName))
+        }
+        list.append(item);
+      });
+    } else {
+      list.text('No users');
+    }
+  }
+   * A callback function that runs when a user is checked or unchecked.
+   */
+  function onCheckBoxChange() {
+    var checkbox = $(this);
+    var title = checkbox.siblings('span');
+    var isChecked = checkbox.prop('checked');
+    var userId = $('#user').val();
+    var userId = checkbox.data('userId');
+    
+    if (isChecked) {
+      title.css('text-decoration', 'line-through');
+    } else {
+      title.css('text-decoration', 'none');
+    }
+    google.script.run.withSuccessHandler(function() {
+      title.effect("highlight", {
+        duration: 1500
+      });
+    }).withFailureHandler(showError)
+      .setCompleted(taskListId, taskId, isChecked);
+  }
+  /**
+   * A callback function that runs when the new user form is submitted.
+   */
+  function onNewUserFormSubmit() {
+    var UserListId = $('#userlist').val();
+    var titleTextBox = $('#user-title');
+    var title = titleTextBox.val();
+    google.script.run.withSuccessHandler(function() {
+      titleTextBox.val('');
+      titleTextBox.effect("highlight", {
+        duration: 1500
+      });
+      loadTasks();
+    }).withFailureHandler(showError)
+      .addTask(taskListId, title);
+    return false;
+  }
+  /**
+   * Logs an error message and shows an alert to the user.
+   */
+  function showError(error) {
+    console.log(error);
+    window.alert('An error has occurred, please try again.');
+  }
+</script>
