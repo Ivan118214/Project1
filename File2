@@ -1,17 +1,3 @@
-/**
- * The list of valid unit identifiers.
- */
-var VALID_UNITS = ['year', 'month', 'week', 'day', 'hour', 'minute', 'second',
-    'millisecond'];
-
-/**
- * Runs when the add-on is installed.
- */
-function onInstall() {
-  onOpen();
-}
-
-/**
  * Runs when the document is opened, creating the add-on's menu. Custom function
  * add-ons need at least one menu item, since the add-on is only enabled in the
  * current spreadsheet when a function is run.
