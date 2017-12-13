@@ -4,3 +4,15 @@ function onOpen() {
       .addItem('Use in this spreadsheet', 'use')
       .addToUi();
 }
+
+
+function Main() {
+  var sheet  = SpreadsheetApp.getActivesheet();
+  var output = sheet.getRange(A1).getvalue();
+    
+}
+
+function include(sheet) {
+  return HtmlService.createHtmlOutputFromFile(sheet)
+      .getContent();
+}
